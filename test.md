@@ -2,5 +2,5 @@
 PROVA
 
 ```math
-\psi
+\ psi
 ```
