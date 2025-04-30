@@ -1,1 +1,1 @@
-`b \over c`
+$$b \over c$$
