@@ -1,1 +1,1 @@
-$b\over c$
+$\frac{a}{b}$
