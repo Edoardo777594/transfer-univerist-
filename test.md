@@ -2,5 +2,5 @@
 PROVA
 
 ```math
-${\frac{a}{b}}$
+\frac{a}{b}
 ```
