@@ -1,6 +1,0 @@
-[HEADER]()
-PROVA
-
-```math
-\ psi
-```
