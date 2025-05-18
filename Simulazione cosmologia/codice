@@ -1,0 +1,32 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def omega_m(a,omega,H):
+    ro = omega*((3*(300000000**2)*(68.17**2))/(8*np.pi*6.67*(10**(-11)))) 
+    return (ro*8*np.pi*6.67*(10**(-11)))/(3*(300000000**2)*(a**3)*(H**2))
+def omega_r(a,omega,H):
+    ro = omega*((3*(300000000**2)*(68.17**2))/(8*np.pi*6.67*(10**(-11))))
+    return ((ro*8*np.pi*6.67*(10**(-11)))/(3*(300000000**2)*(a**4)*(H**2)))
+
+  a = np.linspace(0.1,0.5,10000)
+z = (1/a)-1
+a_punto = []
+for i in range(len(a)-1):
+    d_a = a[i+1]-a[i]
+    a_punto.append(d_a/(z[i+1]-z[i]))
+a_p = np.array(a_punto)
+H  = a_p/a[:len(a)-1]
+y_m = omega_m(a[:len(a)-1],0.3027,H)
+y_r = omega_r(a[:len(a)-1],0.005,H)
+y_lambda = []
+for i,j in zip(y_m,y_r):
+    if 1-i-j<0:
+        y_lambda.append(0)
+    else:
+        y_lambda.append(1-i-j)
+print(y_m[9998],y_r[9998],y_lambda[9998])
+plt.plot(a[:len(a)-1], y_m)
+plt.plot(a[:len(a)-1], y_r)
+plt.plot(a[:len(a)-1], y_lambda)
+
+plt.show()
