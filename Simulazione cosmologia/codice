@@ -1,14 +1,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def omega_m(a,omega,H):
-    ro = omega*((3*(300000000**2)*(68.17**2))/(8*np.pi*6.67*(10**(-11)))) 
-    return (ro*8*np.pi*6.67*(10**(-11)))/(3*(300000000**2)*(a**3)*(H**2))
-def omega_r(a,omega,H):
-    ro = omega*((3*(300000000**2)*(68.17**2))/(8*np.pi*6.67*(10**(-11))))
-    return ((ro*8*np.pi*6.67*(10**(-11)))/(3*(300000000**2)*(a**4)*(H**2)))
+import numpy as np
+import matplotlib.pyplot as plt
 
-  a = np.linspace(0.1,0.5,10000)
+def omega_m(a,omega,H):
+    return (omega*(68.17**2))/((a**3)*(H**2))
+def omega_r(a,omega,H):
+    return (omega*(68.17**2))/((a**4)*(H**2))
+
+
+a = np.linspace(0.1,0.5,10000)
 z = (1/a)-1
 a_punto = []
 for i in range(len(a)-1):
