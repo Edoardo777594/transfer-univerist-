@@ -17,9 +17,12 @@ y_m = omega_m(a,0.3027,H)
 y_r = omega_r(a,0.00005,H)
 y_lambda = 1-y_m-y_r
 
-plt.plot(b, y_m)
-plt.plot(b, y_r)
-plt.plot(b, y_lambda)
+plt.plot(b, y_m,label=r'$\Omega_{m}$')
+plt.plot(b, y_r,label=r'$\Omega_{r}$')
+plt.plot(b, y_lambda,label=r'$\Omega_{\Lambda}$')
+plt.xlabel(r'$\log(a)$')
+plt.ylabel(r'$\Omega_i$')
+plt.legend()
 
 
 plt.show()
