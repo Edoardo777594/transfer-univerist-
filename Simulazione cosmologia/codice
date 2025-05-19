@@ -10,25 +10,16 @@ def omega_r(a,omega,H):
     return (omega*(68.17**2))/((a**4)*(H**2))
 
 
-a = np.linspace(0.1,0.5,10000)
-z = (1/a)-1
-a_punto = []
-for i in range(len(a)-1):
-    d_a = a[i+1]-a[i]
-    a_punto.append(d_a/(z[i+1]-z[i]))
-a_p = np.array(a_punto)
-H  = a_p/a[:len(a)-1]
-y_m = omega_m(a[:len(a)-1],0.3027,H)
-y_r = omega_r(a[:len(a)-1],0.005,H)
-y_lambda = []
-for i,j in zip(y_m,y_r):
-    if 1-i-j<0:
-        y_lambda.append(0)
-    else:
-        y_lambda.append(1-i-j)
-print(y_m[9998],y_r[9998],y_lambda[9998])
-plt.plot(a[:len(a)-1], y_m)
-plt.plot(a[:len(a)-1], y_r)
-plt.plot(a[:len(a)-1], y_lambda)
+b = np.linspace(-20,10,100000)
+a = 10**b
+H = np.sqrt((68.17**2)*((0.3027/(a**3))+(0.00005/(a**4)+0.6086)))
+y_m = omega_m(a,0.3027,H)
+y_r = omega_r(a,0.00005,H)
+y_lambda = 1-y_m-y_r
+
+plt.plot(b, y_m)
+plt.plot(b, y_r)
+plt.plot(b, y_lambda)
+
 
 plt.show()
