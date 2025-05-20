@@ -1,0 +1,19 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+
+a = np.linspace(0,6,100000)
+
+H = np.sqrt((68.17**2)*((0.3027/(a**3))+(0.00005/(a**4)+0.6086)))
+y = H/68.17
+
+
+plt.plot(a, y,label=r'$\frac{H}{H_0}$')
+
+plt.xlabel(r'$\log(a)$')
+plt.ylim([0.75,1])
+plt.ylabel(r'$\frac{H}{H_0}$')
+
+
+plt.show()
