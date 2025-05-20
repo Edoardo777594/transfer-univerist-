@@ -1,9 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-import numpy as np
-import matplotlib.pyplot as plt
-
 def omega_m(a,omega,H):
     return (omega*(68.17**2))/((a**3)*(H**2))
 def omega_r(a,omega,H):
